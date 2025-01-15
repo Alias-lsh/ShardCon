@@ -31,13 +31,12 @@
 
 enclave {
     include "sgx_eid.h"
-    include "datatypes.h"
+    include "user_types.h"
     include "dh_session_protocol.h"
+    include "datatypes.h"
 
     trusted{
-        public uint32_t test_create_session();
-        public uint32_t test_message_exchange();
-        public uint32_t test_close_session();
+        public void ecall_handle([in] struct Transaction * tx, [in, out] struct Object *obj);
     };
 
     untrusted{
@@ -48,3 +47,4 @@ enclave {
     };
 
 };
+
