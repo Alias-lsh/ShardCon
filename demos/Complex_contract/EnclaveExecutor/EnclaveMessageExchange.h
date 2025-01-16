@@ -46,10 +46,10 @@ extern "C" {
 uint32_t SGXAPI create_session(dh_session_t *p_session_info);
 uint32_t SGXAPI send_request_receive_response(dh_session_t *p_session_info, char *inp_buff, size_t inp_buff_len, size_t max_out_buff_size, char **out_buff, size_t* out_buff_len);
 uint32_t SGXAPI close_session(dh_session_t *p_session_info);
-uint32_t SGXAPI session_request(dh_session_t *p_session_info, char *inp_buff, size_t inp_buff_len, char **out_buff, size_t *out_buff_len);
-uint32_t SGXAPI exchange_report(dh_session_t *p_session_info, char *report_data, size_t report_data_len, char **response_data, size_t *response_data_len);
-uint32_t SGXAPI generate_response(dh_session_t *p_session_info, const char *request_data, size_t request_data_len, char **response_data, size_t *response_data_len);
-uint32_t SGXAPI end_session(dh_session_t *p_session_info);
+uint32_t SGXAPI session_request(sgx_dh_msg1_t *dh_msg1, uint32_t *session_id);
+uint32_t SGXAPI exchange_report(sgx_dh_msg2_t *dh_msg2, sgx_dh_msg3_t *dh_msg3, uint32_t session_id);
+uint32_t SGXAPI generate_response(secure_message_t* req_message, size_t req_message_size, size_t max_payload_size, secure_message_t* resp_message, size_t resp_message_size, uint32_t session_id);
+uint32_t SGXAPI end_session(uint32_t session_id);
 
 
 #ifdef __cplusplus
