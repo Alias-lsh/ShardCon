@@ -49,6 +49,7 @@
 #include "App.h"
 #include "CPTask.h"
 #include "CPServer.h"
+#include "EnclaveMessageExchange.h"
 
 /* Function Description:
  *  This function responds to initiator enclave's connection request by generating and sending back ECDH message 1

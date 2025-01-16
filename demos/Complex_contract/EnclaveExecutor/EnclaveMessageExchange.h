@@ -46,6 +46,11 @@ extern "C" {
 uint32_t SGXAPI create_session(dh_session_t *p_session_info);
 uint32_t SGXAPI send_request_receive_response(dh_session_t *p_session_info, char *inp_buff, size_t inp_buff_len, size_t max_out_buff_size, char **out_buff, size_t* out_buff_len);
 uint32_t SGXAPI close_session(dh_session_t *p_session_info);
+uint32_t SGXAPI session_request(dh_session_t *p_session_info, char *inp_buff, size_t inp_buff_len, char **out_buff, size_t *out_buff_len);
+uint32_t SGXAPI exchange_report(dh_session_t *p_session_info, char *report_data, size_t report_data_len, char **response_data, size_t *response_data_len);
+uint32_t SGXAPI generate_response(dh_session_t *p_session_info, const char *request_data, size_t request_data_len, char **response_data, size_t *response_data_len);
+uint32_t SGXAPI end_session(dh_session_t *p_session_info);
+
 
 #ifdef __cplusplus
 }
