@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <openssl/des.h>
 #include <vector>
 int main(void)
 {
